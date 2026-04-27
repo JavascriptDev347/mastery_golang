@@ -13,5 +13,5 @@ type ThreeD struct {
 }
 
 func (t ThreeD) Print() {
-	fmt.Println("Z: ", t.Z)
+	fmt.Printf("Three d values are: %v, %v and %v\n", t.X, t.Y, t.Z)
 }

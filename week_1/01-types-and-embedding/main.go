@@ -18,4 +18,14 @@ func main() {
 	fmt.Println("Hello: ", a)
 	a.Login()
 
+	b := types.ThreeD{
+		Z: 12,
+		Vector: types.Vector{
+			X: 3,
+			Y: 4,
+		},
+	}
+
+	fmt.Println("Hello: ", b)
+	b.Print()
 }
