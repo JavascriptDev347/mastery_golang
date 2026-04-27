@@ -16,9 +16,8 @@ func (p Person) Login() {
 	fmt.Printf("%s tizimga kirdi\n", p.Name)
 }
 
-// admin struct that embeds the Person struct
-type Admin struct{
+// Admin struct that embeds the Person struct
+type Admin struct {
 	Person // embedding Person struct
-	Level string
+	Level  string
 }
-

@@ -1,14 +1,19 @@
 package main
 
+import (
+	"fmt"
+
+	types "github.com/JavascriptDev347/mastery_golang/week_1/01-types-and-embedding/types"
+)
+
 func main() {
-	// a := Admin{
-	// 	Person: Person{
-	// 		Name:  "John Doe",
-	// 		Email: "john@gmail.com",
-	// 	},
-	// 	Level: "Super Admin",
-	// }
-	// fmt.Printf("Admin: %s\n", a.Person.Name)
-	// fmt.Printf("Email: %s\n", a.Person.Email)
-	// fmt.Printf("Level: %s\n", a.Level)
+	a := types.Admin{
+		Person: types.Person{
+			Name:  "John",
+			Email: "john@gmail.com",
+		},
+		Level: "1",
+	}
+
+	fmt.Println("Hello: ", a.Name)
 }
