@@ -15,5 +15,7 @@ func main() {
 		Level: "1",
 	}
 
-	fmt.Println("Hello: ", a.Name)
+	fmt.Println("Hello: ", a)
+	a.Login()
+
 }
