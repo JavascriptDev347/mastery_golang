@@ -42,9 +42,18 @@ technique I'm actually practicing.
   visible.
 - **Tests are the runner.** No `main()` — verify with:
   ```
-  go test ./leetcode/01-arrays-strings/0001-two-sum/...
-  go test ./leetcode/...          # run everything
+  go test ./leetcode/01-arrays-strings/0001-two-sum/...   # one problem
+  go test ./leetcode/...                                   # everything
+  go test ./leetcode/... -v                                # show each subtest
+  go test ./leetcode/01-arrays-strings/0001-two-sum/... -run TestTwoPointers -v
   ```
+  This beats a hand-run `main.go` for checking your own work: the expected
+  value lives right next to the input in the test table, so `go test`
+  compares them for you (pass/fail) instead of you eyeballing printed
+  output — and it keeps working unchanged as more problems get added,
+  no file to keep editing. If you want to *see* a value while developing
+  (not just pass/fail), use `t.Logf("got %v", got)` inside the test and run
+  with `-v` — output only shows for failing tests unless `-v` is passed.
 - **Every problem folder has a `README.md`** (start from `TEMPLATE.md`)
   documenting the problem, examples/constraints, and a table comparing every
   approach tried (time, space, trade-off, why you'd pick it).
@@ -58,6 +67,7 @@ technique I'm actually practicing.
 | Date | Topic | Problem | Difficulty | Approaches |
 |------|-------|---------|------------|------------|
 | 2026-08-24 | Arrays & Strings | [0001. Two Sum](01-arrays-strings/0001-two-sum) | Easy | Brute Force, Two Pointers |
+| 2026-08-24 | Arrays & Strings | [0003. Longest Substring Without Repeating Characters](01-arrays-strings/0003-longest-substring-without-repeating-characters) | Medium | Brute Force, Sliding Window, Sliding Window + Last-Seen Index |
 
 ## Topics
 

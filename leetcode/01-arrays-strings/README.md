@@ -44,3 +44,4 @@ in Go (`string` concatenation allocates a new one every time).
 | # | Problem | Difficulty | Approaches |
 |---|---------|------------|------------|
 | 0001 | [Two Sum](0001-two-sum) | Easy | Brute Force, Two Pointers |
+| 0003 | [Longest Substring Without Repeating Characters](0003-longest-substring-without-repeating-characters) | Medium | Brute Force, Sliding Window, Sliding Window + Last-Seen Index |
