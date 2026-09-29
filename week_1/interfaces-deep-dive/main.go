@@ -1,41 +1,68 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
-type Notifier interface {
-	Notify(message string) error
+type Truck interface {
+	LoadCargo() error
+	UnLoadCargo() error
 }
 
-type EmailSender struct {
-	smtpHost string
+type NormalTruck struct {
+	id    string
+	cargo int
 }
 
-func (e *EmailSender) Notify(message string) error {
-	fmt.Printf("Sending email: %s\n", message)
+func (t NormalTruck) LoadCargo() error {
 	return nil
 }
 
-type SMSSender struct {
-	phoneNumber string
-}
-
-func (s *SMSSender) Notify(message string) error {
-	fmt.Printf("Sending SMS: %s\n", message)
+func (t NormalTruck) UnLoadCargo() error {
 	return nil
 }
 
-func notify(notifier Notifier, message string) {
-	err := notifier.Notify(message)
-	if err != nil {
-		fmt.Println("Error:", err)
+type ElectricTruck struct {
+	id      string
+	cargo   int
+	battery float64
+}
+
+func (t ElectricTruck) LoadCargo() error {
+	return nil
+}
+
+func (t ElectricTruck) UnLoadCargo() error {
+	return nil
+}
+
+func processTruck(truck Truck) error {
+	if err := truck.LoadCargo(); err != nil {
+		return fmt.Errorf("failed to load cargo: %w", err)
 	}
+	return nil
 }
 
-// Hech qanday "implements" yozilmagan, lekin ikkalasi ham Notifier
-func SendAlert(n Notifier, msg string) error {
-	return n.Notify(msg)
-}
-func main() {
-	SendAlert(&EmailSender{}, "Server down!")
-	SendAlert(&SMSSender{}, "Server down!")
+func main2() {
+
+	// trucks := []NormalTruck{
+	// 	{id: "First", cargo: 12},
+	// 	{id: "Second", cargo: 8},
+	// }
+
+	// eTrucks := []ElectricTruck{
+	// 	{id: "First e", cargo: 10, battery: 50},
+	// 	{id: "Second e", cargo: 5, battery: 30},
+	// }
+
+	// err := processTruck(NormalTruck{id: "1"})
+	// if err != nil {
+	// 	log.Fatalf("Error processing truck %s: %v", err)
+	// }
+
+	// err = processTruck(ElectricTruck{id: "2"})
+	// if err != nil {
+	// 	log.Fatalf("Error processing truck %s: %v", err)
+	// }
+	//
 }
