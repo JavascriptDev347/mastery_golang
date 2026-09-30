@@ -2,16 +2,32 @@ package main
 
 import "log"
 
+func updateUserID(userIDPtr *int, id int) {
+	*userIDPtr = id
+}
+
+func updateUserIDCopy(userIDPtr int, id int) {
+	userIDPtr = id
+	log.Println(userIDPtr)
+}
 func main() {
 
-	truckID := 42
-	anotherTruckID := &truckID
-	log.Println(&truckID)
-	log.Println(anotherTruckID)
+	var item *int
+	*item = 89
+	log.Println(*item)
 
-	*anotherTruckID = 90
-	log.Println(truckID)
-	log.Println(*anotherTruckID)
+	// userID := 923
+	// userIDPtr := &userID
+	// log.Println(userIDPtr)
+	// updateUserID(&userID, 122)
+	// log.Println(*userIDPtr)
+
+	// updateUserIDCopy(userID, 132)
+	// log.Println(userID)
+
+	// *anotherTruckID = 90
+	// log.Println(truckID)
+	// log.Println(*anotherTruckID)
 
 	// log.Println(&anotherTruckID)
 	// log.Println(truckID)
